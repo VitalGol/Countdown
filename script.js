@@ -25,7 +25,7 @@ function tick() {
 
     // stop if down to zero
     if (secondsRemaining === 0) {
-        alert("Done!");
+        alert("Выполнено!");
         clearInterval(intervalHandle);
         resetPage();
     }
@@ -38,7 +38,7 @@ function startCountdown() {
     var minutes = document.getElementById("minutes").value;
     // check if not a number
     if (isNaN(minutes)) {
-        alert("Please enter a number!");
+			alert("Пожалуйста ... введите число!");
         return;
     }
     // how many seconds?
@@ -46,7 +46,7 @@ function startCountdown() {
     // every second, call the "tick" function
     intervalHandle = setInterval(tick, 1000);
     // hide the form
-    document.getElementById("inputArea").style.display = "none";
+    document.getElementById("inputArea").style.visibility = "hidden";
 }
 
 // as soon as the page is loaded...
@@ -54,11 +54,12 @@ window.onload = function() {
     // create input text box and give it an id of "minutes"
     var inputMinutes = document.createElement("input");
     inputMinutes.setAttribute("id", "minutes");
-    inputMinutes.setAttribute("type", "text");
+		inputMinutes.setAttribute("type", "text");
+	inputMinutes.setAttribute("placeholder", "введите число");
     // create a button
     var startButton = document.createElement("input");
     startButton.setAttribute("type", "button");
-    startButton.setAttribute("value", "Start Countdown");
+    startButton.setAttribute("value", "начать отсчёт");
     startButton.onclick = function() {
         startCountdown();
     };
